@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <a href="#" class="brand">Travel</a>
+        <div class="menu-btn" id="menuButton"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Explore</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="home">
+        <video src="./media/1.mp4" class="video-slide active" autoplay muted loop></video>
+        <video src="./media/2.mp4" class="video-slide" autoplay muted loop></video>
+        <video src="./media/3.mp4" class="video-slide" autoplay muted loop></video>
+        <video src="./media/4.mp4" class="video-slide" autoplay muted loop></video>
+        <video src="./media/5.mp4" class="video-slide" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Wonderful.<br><span class="subhead">Island</span></h1>
+            <p>Discover paradise on our Wonderful Island getaway! Immerse yourself in breathtaking natural beauty, pristine beaches, and a vibrant local culture that will leave you spellbound. Whether you seek relaxation or thrilling adventures, this island is your dream destination.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Camping.<br><span class="subhead">Enjoy</span></h1>
+            <p>Experience the great outdoors like never before with Camping Enjoy! Escape the hustle and bustle of city life and reconnect with nature. Pitch your tent beneath a canopy of stars, roast marshmallows by the campfire, and wake up to the soothing sounds of nature.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Adventures.<br><span class="subhead">Off Road</span></h1>
+            <p>Get your heart racing with Adventures Off Road! Embark on adrenaline-pumping journeys through rugged terrain, conquering nature's challenges one thrilling ride at a time. From off-road expeditions to extreme sports, our adventures are designed to push your limits and leave you with unforgettable stories to share.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Road Trip.<br><span class="subhead">Together</span></h1>
+            <p>Hit the open road and create memories that will last a lifetime with Road Trip Together! Gather your friends and family for an epic journey, exploring diverse landscapes, charming towns, and hidden gems along the way. Our road trip guides and tips will help you plan the perfect adventure.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Feel Nature.<br><span class="subhead">Relax</span></h1>
+            <p>Reconnect with your inner peace and let stress melt away as you Feel Nature Relax. Surround yourself with the serenity of lush forests, tranquil lakes, and majestic mountains. Whether you prefer yoga retreats, meditation escapes, or simply unplugging from the digital world. Start your journey to relaxation today!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        const menuBtn = document.querySelector(".menu-btn");
+        const nav = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", ()=>{
+            menuBtn.classList.toggle("active");
+            nav.classList.toggle("active");
+        });
+
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+        var sliderNav = function(manual){
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            });
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", ()=>{
+                sliderNav(i)
+            });
+        });
+    </script>
+</body>
+</html>
